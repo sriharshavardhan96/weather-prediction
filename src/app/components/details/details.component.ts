@@ -29,7 +29,7 @@ export class DetailsComponent implements OnInit {
   /**
    * Fetchs api details based on the router param;
    */
-  fetchAPIDetails(){
+  fetchAPIDetails(): void{
     this.city = this.activatedRoute.snapshot.paramMap.get('city');
     const todayNumberInWeek = new Date().getDay();
     const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
@@ -42,7 +42,11 @@ export class DetailsComponent implements OnInit {
       this.getForecast(foreCastData);
     });
   }
-  getForecast(foreCastData){
+  /**
+   * Gets forecast details for the next 5 days;
+   * @param foreCastData 
+   */
+  getForecast(foreCastData): void{
     const dates = {};
     for (const res of foreCastData) {
       const date = new Date(res.dt_txt).toDateString().split(' ')[0];
@@ -68,7 +72,7 @@ export class DetailsComponent implements OnInit {
    * Gets city image path based on the cityname
    * @param city 
    */
-  getCityImagePath(city){
+  getCityImagePath(city): void{
     switch (city) {
       case 'paris':
         this.cityIllustrationPath = '../../../assets/cities/paris.svg';
