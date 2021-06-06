@@ -1,1 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
+.main__container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    min-height: 90vh;
+    position: relative;
+  }
